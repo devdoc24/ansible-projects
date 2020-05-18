@@ -1,2 +1,13 @@
 ---
 # tasks file for apache
+- name: testing
+  command: echo "hello, this is apahe role"
+  register: out
+#- debug: "{{out.stdout}}"
+#- debug:
+#    var: out.stdout
+
+- debug:
+    var: out.stdout_lines
+
+- include: install-apache.yml

@@ -1,7 +1,10 @@
 ---
-- hosts: 127.0.0.1 
+- hosts: test 
   become: true
   connection: local
 
   tasks:
     - action: ping
+
+  roles:
+    - apache
