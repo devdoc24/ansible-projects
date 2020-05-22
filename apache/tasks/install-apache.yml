@@ -3,16 +3,17 @@
   yum:
     name: httpd
     state: latest
-- name: check httpd status
-  service:
-    name: httpd
-    state: started
-- replace:
+
+- name: changing the port to 8000
+  replace:
     path: /etc/httpd/conf/httpd.conf
-    regexp: 'Listen 80'
+    regexp: 'Listen (8.*)?'
+    #replace: '\1Listen 8000'
     replace: 'Listen 8000'
+    #replace: 'Listen 8000'
     backup: yes
 
-- service:
+- name: restarting apache service
+  service:
     name: httpd
-    state: reloaded
+    state: restarted

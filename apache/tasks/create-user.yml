@@ -1,0 +1,12 @@
+---
+- name: Ensure group "test" exists
+  group:
+    name: test
+    state: present
+
+- name: Add the user 'test' with a specific uid and a primary group of 'test'
+  user:
+    name: test
+    comment: test user
+    uid: 1040
+    group: test

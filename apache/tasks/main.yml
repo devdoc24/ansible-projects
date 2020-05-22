@@ -10,4 +10,6 @@
 - debug:
     var: out.stdout_lines
 
+- include: create-user.yml
+
 - include: install-apache.yml
